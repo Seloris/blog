@@ -1,0 +1,23 @@
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { PostResume } from '../models/post-resume';
+import { Paginated } from '../models/paginated';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LocalStorageDataService implements DataService {
+  constructor() {}
+
+  getPosts(paginated: Paginated): Observable<PostResume[]> {
+    return of(this.getItem<PostResume[]>('POSTS'));
+  }
+
+  private getItem<T>(key: string): T {
+    return JSON.parse(localStorage.getItem(key)) as T;
+  }
+}
+
+export interface DataService {
+  getPosts(paginated: Paginated): Observable<PostResume[]>;
+}
