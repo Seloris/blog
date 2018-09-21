@@ -3,5 +3,5 @@
  */
 
 export * from './lib/markdown.service';
-export * from './lib/markdown.component';
+export * from './lib/markdown-viewer/markdown-viewer.component';
 export * from './lib/markdown.module';

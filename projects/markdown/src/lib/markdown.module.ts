@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { MarkdownComponent } from './markdown.component';
+import { MarkdownViewerComponent } from './markdown-viewer/markdown-viewer.component';
 
 @NgModule({
   imports: [
   ],
-  declarations: [MarkdownComponent],
-  exports: [MarkdownComponent]
+  declarations: [MarkdownViewerComponent, MarkdownViewerComponent],
+  exports: [MarkdownViewerComponent]
 })
 export class MarkdownModule { }
