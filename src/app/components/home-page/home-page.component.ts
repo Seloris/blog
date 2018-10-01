@@ -12,6 +12,6 @@ export class HomePageComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    this.dataService.getPosts({ skip: 0, take: 5 }).subscribe();
+    this.dataService.getPosts({ skip: 0, take: 5 }).subscribe(posts => (this.posts = posts));
   }
 }

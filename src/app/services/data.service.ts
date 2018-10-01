@@ -6,7 +6,7 @@ import { Paginated } from '../models/paginated';
 @Injectable({
   providedIn: 'root'
 })
-export class LocalStorageDataService implements DataService {
+export class DataService {
   constructor() {}
 
   getPosts(paginated: Paginated): Observable<PostResume[]> {
@@ -16,8 +16,4 @@ export class LocalStorageDataService implements DataService {
   private getItem<T>(key: string): T {
     return JSON.parse(localStorage.getItem(key)) as T;
   }
-}
-
-export interface DataService {
-  getPosts(paginated: Paginated): Observable<PostResume[]>;
 }

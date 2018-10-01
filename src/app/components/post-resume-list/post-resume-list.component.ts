@@ -11,5 +11,17 @@ export class PostResumeListComponent implements OnInit {
   posts: PostResume[];
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.posts = this.posts
+      .concat(this.posts)
+      .concat(this.posts)
+      .concat(this.posts)
+      .concat(this.posts)
+      .concat(this.posts)
+      .concat(this.posts)
+      .concat(this.posts)
+      .concat(this.posts)
+      .concat(this.posts)
+      .concat(this.posts);
+  }
 }
