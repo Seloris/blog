@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular.io-example": {
+    "blog": {
       "root": "",
       "projectType": "application",
       "architect": {
@@ -55,18 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular.io-example:build"
+            "browserTarget": "blog:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular.io-example:build:production"
+              "browserTarget": "blog:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular.io-example:build"
+            "browserTarget": "blog:build"
           }
         },
         "test": {
@@ -116,7 +116,7 @@
         }
       }
     },
-    "angular.io-example-e2e": {
+    "blog-e2e": {
       "root": "",
       "projectType": "application",
       "cli": {},
@@ -126,7 +126,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "angular.io-example:serve"
+            "devServerTarget": "blog:serve"
           }
         },
         "lint": {
