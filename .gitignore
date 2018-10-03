@@ -1,7 +1,7 @@
 .DS_STORE
 
-/dist/
-/angular/dist/
+dist/
+dist-server/
 bazel-*
 e2e_test.*
 node_modules

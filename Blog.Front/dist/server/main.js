@@ -1036,7 +1036,7 @@ exports.LAZY_MODULE_MAP = {};
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\WS\Perso\blog\angular\src\main.server.ts */"./src/main.server.ts");
+module.exports = __webpack_require__(/*! D:\WS\Perso\blog\Blog.Front\src\main.server.ts */"./src/main.server.ts");
 
 
 /***/ }),
