@@ -31,3 +31,10 @@ yarn-error.log
 
 # rollup-test output
 /modules/rollup-test/dist/
+
+# api
+bin
+obj
+wwwroot
+.suo
+.vs
