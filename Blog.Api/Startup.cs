@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,9 +25,10 @@ namespace Blog.Api
         {
             services.AddMvc();
             services.AddNodeServices();
-            services.AddSpaStaticFiles(configuration =>
+            services.AddSpaPrerenderer();
+            services.AddSpaStaticFiles(config =>
             {
-                configuration.RootPath = "../Blog.Front/dist/server";
+                config.RootPath = "../Blog.Front/dist/blog-server";
             });
         }
 
@@ -42,41 +44,12 @@ namespace Blog.Api
                 app.UseExceptionHandler("/Home/Error");
             }
 
-
-            //app.UseSpa(spa =>
-            //{
-            //    spa.Options.SourcePath = "../Blog.Front";
-
-            //    spa.UseSpaPrerendering(options =>
-            //    {
-            //        options.BootModulePath = $"{spa.Options.SourcePath}/dist/server/main.js";
-            //        //options.BootModuleBuilder = env.IsDevelopment()
-            //        //    ? new AngularCliBuilder(npmScript: "build:ssr")
-            //        //    : null;
-            //        options.ExcludeUrls = new[] { "/sockjs-node" };
-            //    });
-            //});
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            //app.UseSpa(spa =>
-            //{
-            //    spa.Options.SourcePath = "../Blog.Front";
-
-            //    spa.UseSpaPrerendering(options =>
-            //    {
-            //        options.BootModulePath = $"{spa.Options.SourcePath}/dist/server/boot-server.ts";
-            //        //options.BootModuleBuilder = env.IsDevelopment()
-            //        //    ? new AngularCliBuilder(npmScript: "build:ssr")
-            //        //    : null;
-            //        options.ExcludeUrls = new[] { "/sockjs-node" };
-            //    });
-            //});
         }
     }
 }
