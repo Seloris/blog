@@ -1,13 +1,17 @@
 import { isPlatformBrowser } from "@angular/common";
 import { APP_ID, Inject, NgModule, PLATFORM_ID } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
+import { PrebootModule } from "preboot";
 import { AppComponent } from "./app.component";
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({ appId: "tour-of-heroes" }),
-    FormsModule
+    BrowserModule.withServerTransition({ appId: "blog" }),
+    FormsModule,
+    HttpModule,
+    PrebootModule.withConfig({ appRoot: "app-root" })
   ],
   declarations: [AppComponent],
   providers: [],

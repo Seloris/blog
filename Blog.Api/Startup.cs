@@ -23,7 +23,7 @@ namespace Blog.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
+            services.AddNodeServices();
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "../Blog.Front/dist/server";
