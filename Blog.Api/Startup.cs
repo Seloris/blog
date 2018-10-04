@@ -23,6 +23,11 @@ namespace Blog.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "../Blog.Front/dist/server";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,19 +42,20 @@ namespace Blog.Api
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseSpa(spa =>
-            {
-                spa.Options.SourcePath = "../Blog.Front";
 
-                spa.UseSpaPrerendering(options =>
-                {
-                    options.BootModulePath = $"{spa.Options.SourcePath}/dist/server.js";
-                    options.BootModuleBuilder = env.IsDevelopment()
-                        ? new AngularCliBuilder(npmScript: "build:ssr")
-                        : null;
-                    options.ExcludeUrls = new[] { "/sockjs-node" };
-                });
-            });
+            //app.UseSpa(spa =>
+            //{
+            //    spa.Options.SourcePath = "../Blog.Front";
+
+            //    spa.UseSpaPrerendering(options =>
+            //    {
+            //        options.BootModulePath = $"{spa.Options.SourcePath}/dist/server/main.js";
+            //        //options.BootModuleBuilder = env.IsDevelopment()
+            //        //    ? new AngularCliBuilder(npmScript: "build:ssr")
+            //        //    : null;
+            //        options.ExcludeUrls = new[] { "/sockjs-node" };
+            //    });
+            //});
 
             app.UseMvc(routes =>
             {
@@ -57,6 +63,20 @@ namespace Blog.Api
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //app.UseSpa(spa =>
+            //{
+            //    spa.Options.SourcePath = "../Blog.Front";
+
+            //    spa.UseSpaPrerendering(options =>
+            //    {
+            //        options.BootModulePath = $"{spa.Options.SourcePath}/dist/server/boot-server.ts";
+            //        //options.BootModuleBuilder = env.IsDevelopment()
+            //        //    ? new AngularCliBuilder(npmScript: "build:ssr")
+            //        //    : null;
+            //        options.ExcludeUrls = new[] { "/sockjs-node" };
+            //    });
+            //});
         }
     }
 }
