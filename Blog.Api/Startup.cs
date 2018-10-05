@@ -23,6 +23,11 @@ namespace Blog.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("MostSecureCorsEver", builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            });
+
             services.AddMvc();
             services.AddNodeServices();
             services.AddSpaPrerenderer();
@@ -44,11 +49,12 @@ namespace Blog.Api
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseCors("MostSecureCorsEver");
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapSpaFallbackRoute(
+                    name: "spa-fallback",
+                    defaults: new { controller = "Home", action = "Index" });
             });
         }
     }

@@ -13,7 +13,7 @@ export default createServerRenderer(params => {
   // console.log(JSON.stringify(params));
 
   const setupOptions: IEngineOptions = {
-    appSelector: '<app-root></app-root>',
+    appSelector: '<ddj-root></ddj-root>',
     ngModule: AppServerModule,
     request: params,
     providers: []
