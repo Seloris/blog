@@ -9,12 +9,11 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "paths": {
+      "@ddj-models": ["./src/models"]
+    },
     "target": "es5",
     "typeRoots": ["node_modules/@types"],
-    "paths": {
-      // "@payzen": ["./libs/modules/payzen"],
-      "@ddj-models": ["./src/models"],
-    },
     "lib": ["es2018", "dom"]
   }
 }
