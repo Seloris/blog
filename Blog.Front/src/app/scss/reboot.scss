@@ -1,0 +1,24 @@
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    color: hsla(0, 0%, 0%, 0.8);
+    font-family: georgia, serif;
+    font-weight: normal;
+    word-wrap: break-word;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-transform: none;
+}

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Blog.Domain.Queries
 {
 
-    public interface IQuery<T> 
+    public interface IQuery<T>
     {
         Task<T> GetAsync();
     }

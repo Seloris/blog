@@ -1,0 +1,7 @@
+<ddj-async-content [isLoading]="isLoading" [error]="error">
+  <div *ngIf="post">
+    <h1>{{post.title}}</h1>
+    <hr />
+    <div>{{post.content}}</div>
+  </div>
+</ddj-async-content>

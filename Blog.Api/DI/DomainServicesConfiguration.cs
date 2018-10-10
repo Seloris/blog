@@ -9,6 +9,7 @@ namespace Blog.Api.DI
         public static void AddQueryCommands(this IServiceCollection services)
         {
             services.AddScoped<GetPostsQuery>();
+            services.AddScoped<GetPostQuery>();
         }
 
     }

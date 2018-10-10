@@ -1,7 +1,6 @@
 ﻿using Blog.Context;
 using Blog.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,7 +19,8 @@ namespace Blog.Domain.Queries
             return _context.Posts.Select(p => new PostResumeModel
             {
                 Title = p.Title,
-                Url = p.Url
+                Url = p.Url,
+                Description = p.Description
             }).ToArrayAsync();
         }
     }

@@ -10,6 +10,10 @@ import { environment } from '../../environments/environment';
 export class BlogService {
   constructor(private http: HttpClient) {}
 
+  getPost(postUrl: string): Observable<Post> {
+    return this.http.get<Post>(`${environment.apiUrl}/posts/${postUrl}`);
+  }
+
   getPosts(): Observable<PostResume[]> {
     return this.http.get<PostResume[]>(`${environment.apiUrl}/posts`);
   }

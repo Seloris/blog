@@ -6,11 +6,11 @@ import { services } from './app.metas';
 import { appRouting } from './app.routing';
 import { AsyncContentComponent } from './components/async-content/async-content.component';
 import { PostCardComponent } from './components/post-card/post-card.component';
-import { PostComponent } from './components/post/post.component';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
+import { PagePostComponent } from './pages/page-post/page-post.component';
 
 @NgModule({
-  declarations: [AppComponent, PageHomeComponent, PostComponent, PostCardComponent, AsyncContentComponent],
+  declarations: [AppComponent, PageHomeComponent, PostCardComponent, AsyncContentComponent, PagePostComponent],
   imports: [HttpClientModule, BrowserModule.withServerTransition({ appId: 'serverApp' }), appRouting],
   providers: services,
   bootstrap: [AppComponent]
