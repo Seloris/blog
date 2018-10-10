@@ -1,8 +1,9 @@
 ﻿using Blog.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Blog.Api.Extensions
+namespace Blog.Api.DI
 {
     public static class BlogServicesExtensions
     {
@@ -24,10 +25,9 @@ namespace Blog.Api.Extensions
             });
         }
 
-        public static void AddEntityFramework(this IServiceCollection services)
+        public static void AddEntityFramework(this IServiceCollection services, IConfiguration config)
         {
-            services.AddEntityFrameworkSqlServer().AddDbContext<BlogContext>(opt => opt.UseSqlServer("."));
-            services.AddScoped(provider => provider.GetService<BlogContext>());
+            services.AddEntityFrameworkSqlServer().AddDbContext<BlogContext>(opt => opt.UseSqlServer(config["CS:Context"]));
         }
     }
 }

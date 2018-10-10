@@ -1,1 +1,3 @@
-<ddj-post-card [post]="post" *ngFor="let post of posts"></ddj-post-card>
+<ddj-async-content [isLoading]="isLoadingPosts" [error]="error">
+  <ddj-post-card [post]="post" *ngFor="let post of posts"></ddj-post-card>
+</ddj-async-content>

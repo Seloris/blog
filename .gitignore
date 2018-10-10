@@ -38,3 +38,7 @@ obj
 wwwroot
 .suo
 .vs
+
+Blog\.Database/Blog\.Database\.dbmdl
+
+Blog\.Database/Blog\.Database\.jfm

@@ -1,0 +1,4 @@
+<ng-content *ngIf="!isLoading && !error">
+</ng-content>
+<div class="loader" *ngIf="isLoading && !error">{{loadingText || 'Chargement des données'}}</div>
+<div class="error" *ngIf="error">{{error}}</div>

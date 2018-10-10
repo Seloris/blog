@@ -1,5 +1,7 @@
 ﻿using Blog.Domain.Models;
+using Blog.Domain.Queries;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Blog.Api.Controllers
 {
@@ -8,26 +10,10 @@ namespace Blog.Api.Controllers
     {
         [Route("")]
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index([FromServices] GetPostsQuery query)
         {
-            var post1 = new PostResumeModel
-            {
-                Title = "Blog de post 1",
-                Url = "blog-post-1"
-            };
-
-            var post2 = new PostResumeModel
-            {
-                Title = "Blog de post 1",
-                Url = "blog-post-1"
-            };
-            var post3 = new PostResumeModel
-            {
-                Title = "Blog de post 1",
-                Url = "blog-post-1"
-            };
-
-            return Ok(new PostResumeModel[] { post1, post2, post3 });
+            PostResumeModel[] result = await query.GetAsync();
+            return Ok(result);
         }
     }
 }

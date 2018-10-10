@@ -19,6 +19,7 @@ namespace Blog.Api
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseUrls("http://*:5200")
                 .UseStartup<Startup>()
                 .Build();
     }
