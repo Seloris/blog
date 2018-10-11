@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:61629/api'
+  apiUrl: 'https://seloris-blog-api.azurewebsites.net/api'
 };
