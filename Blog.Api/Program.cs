@@ -21,6 +21,7 @@ namespace Blog.Api
             WebHost.CreateDefaultBuilder(args)
                 .UseUrls("http://*:5200")
                 .UseStartup<Startup>()
+                .UseApplicationInsights("7f280b35-1638-4db8-a9ea-93b4555a4983")
                 .Build();
     }
 }
