@@ -3,15 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
-    <DefaultItemExcludes>angular\node_modules\**;$(DefaultItemExcludes)</DefaultItemExcludes>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <DefaultItemExcludes>Blog.Front\node_modules\**;$(DefaultItemExcludes)</DefaultItemExcludes>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Blog.Context\**" />
-    <Content Remove="Blog.Context\**" />
-    <EmbeddedResource Remove="Blog.Context\**" />
-    <None Remove="Blog.Context\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Cors" Version="5.2.6" />
@@ -31,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Blog.Front\dist/blog-server\**\*">
+    <None Update="Blog.Front\dist\blog-server\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
