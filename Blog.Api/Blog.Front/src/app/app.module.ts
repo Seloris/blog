@@ -9,6 +9,8 @@ import { PostCardComponent } from './components/post-card/post-card.component';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { PagePostComponent } from './pages/page-post/page-post.component';
 
+import './typography';
+
 @NgModule({
   declarations: [AppComponent, PageHomeComponent, PostCardComponent, AsyncContentComponent, PagePostComponent],
   imports: [HttpClientModule, BrowserModule.withServerTransition({ appId: 'serverApp' }), appRouting],

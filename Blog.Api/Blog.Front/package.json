@@ -25,9 +25,11 @@
     "@angular/router": "~7.0.0-rc.0",
     "@nguniversal/aspnetcore-engine": "^6.1.0",
     "@nguniversal/module-map-ngfactory-loader": "^6.1.0",
+    "@types/typography": "^0.16.0",
     "aspnet-prerendering": "^3.0.1",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
+    "typography": "^0.16.17",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
