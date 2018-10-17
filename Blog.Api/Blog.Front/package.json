@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ssr": "ng run blog:server && npm run webpack:server",
+    "ssr": "ng run blog:server:production && npm run webpack:server",
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
   },
   "private": true,
