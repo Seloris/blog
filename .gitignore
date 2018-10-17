@@ -42,3 +42,4 @@ wwwroot
 Blog\.Database/Blog\.Database\.dbmdl
 
 Blog\.Database/Blog\.Database\.jfm
+/Blog.Api/Blog.Front/_node_modules

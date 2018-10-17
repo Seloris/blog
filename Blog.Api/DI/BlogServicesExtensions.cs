@@ -13,7 +13,7 @@ namespace Blog.Api.DI
             services.AddSpaPrerenderer();
             services.AddSpaStaticFiles(config =>
             {
-                config.RootPath = "./Blog.Front/dist/blog-server";
+                config.RootPath = "./Blog.Front/dist/server";
             });
         }
 

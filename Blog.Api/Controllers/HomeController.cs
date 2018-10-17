@@ -33,7 +33,7 @@ namespace Blog.Api.Controllers
                 }
             };
 
-            RenderToStringResult result = await prerenderer.RenderToString("./Blog.Front/dist/blog-server/main.js", customDataParameter: parameters);
+            RenderToStringResult result = await prerenderer.RenderToString("./Blog.Front/dist/server/server.js", customDataParameter: parameters);
 
             ViewData["SPA"] = result.Html;
 

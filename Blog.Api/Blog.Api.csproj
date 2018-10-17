@@ -2,8 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
-    <DefaultItemExcludes>angular\node_modules\**;$(DefaultItemExcludes)</DefaultItemExcludes>
+    <DefaultItemExcludes>Blog.Front\node_modules\**;$(DefaultItemExcludes)</DefaultItemExcludes>
+    <DefaultItemExcludes>Blog.Front\_node_modules\**;$(DefaultItemExcludes)</DefaultItemExcludes>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
