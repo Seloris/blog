@@ -10,13 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Blog.Context\**" />
-    <Content Remove="Blog.Context\**" />
-    <EmbeddedResource Remove="Blog.Context\**" />
-    <None Remove="Blog.Context\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Cors" Version="5.2.6" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.NodeServices" Version="2.1.1" />
@@ -34,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Blog.Front\dist/blog-server\**\*">
+    <None Update="Blog.Front\dist\blog-server\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
