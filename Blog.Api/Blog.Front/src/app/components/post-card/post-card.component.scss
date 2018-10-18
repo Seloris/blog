@@ -1,20 +1,77 @@
+@import 'variables';
+@import 'mixins';
 :host {
   background: #fff;
   display: flex;
   flex-direction: column;
   padding: 0;
-  figure {
-    max-width: 500px;
-    img {
-      width: 100%;
+  .img-container {
+    overflow: hidden;
+    &:hover {
+      a {
+        .img-box {
+          transform: scale(1.1);
+        }
+        .overlay {
+          .backdrop {
+            opacity: 0.4;
+          }
+          .overlay-content {
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+    a {
+      position: relative;
+      display: block;
+      height: 200px;
+      .img-box {
+        @include absoluteStretch();
+        transition: all $transition-normal;
+        background: url('/assets/angular.jpg');
+        background-position: center;
+        background-size: cover;
+      }
+      .overlay {
+        @include absoluteStretch();
+        transition: all $transition-normal;
+        z-index: 1;
+        .backdrop {
+          @include absoluteStretch();
+          transition: all $transition-normal;
+          opacity: 0;
+          background: #000;
+        }
+        .overlay-content {
+          @include absoluteStretch();
+          display: flex;
+          font-size: 1.3em;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          z-index: 2;
+          color: #fff;
+        }
+      }
     }
   }
   .title {
+    margin: 12px;
   }
   .details {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
     .category {
+      a {
+        font-weight: 600;
+      }
     }
     .date {
+      font-size: 0.8em;
     }
   }
 }

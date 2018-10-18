@@ -27,7 +27,7 @@ namespace Blog.Api.DI
 
         public static void AddEntityFramework(this IServiceCollection services, IConfiguration config)
         {
-            services.AddEntityFrameworkSqlServer().AddDbContext<BlogContext>(opt => opt.UseSqlServer(config["CS:Context"]));
+            services.AddEntityFrameworkSqlServer().AddDbContext<BlogContext>(opt => opt.UseSqlServer(config.GetConnectionString("Context")));
         }
     }
 }
