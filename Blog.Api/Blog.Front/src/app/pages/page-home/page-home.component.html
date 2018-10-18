@@ -1,7 +1,5 @@
 <ddj-async-content [isLoading]="isLoadingPosts" [error]="error">
   <div class="post-container">
-    <a *ngFor="let post of posts" [routerLink]="['posts', post.url]">
-      <ddj-post-card [post]="post"></ddj-post-card>
-    </a>
+    <ddj-post-card *ngFor="let post of posts" [post]="post"></ddj-post-card>
   </div>
 </ddj-async-content>

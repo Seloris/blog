@@ -30,6 +30,9 @@
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
     "typography": "^0.16.17",
+    "typography-theme-fairy-gates": "^0.15.11",
+    "typography-theme-lincoln": "^0.15.11",
+    "typography-theme-twin-peaks": "^0.15.11",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

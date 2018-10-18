@@ -1,3 +1,20 @@
 :host {
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  figure {
+    max-width: 500px;
+    img {
+      width: 100%;
+    }
+  }
+  .title {
+  }
+  .details {
+    .category {
+    }
+    .date {
+    }
+  }
 }
