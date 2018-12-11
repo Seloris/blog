@@ -8,11 +8,11 @@
             padding: 24px;
         }
         form {
-            .content-form-field {
+            mat-form-field {
                 width: 100%;
-            }
-            textarea {
-                width: 100%;
+                textarea {
+                    width: 100%;
+                }
             }
         }
     }

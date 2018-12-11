@@ -8,3 +8,8 @@ export interface PostResume {
   description: string;
   url: string;
 }
+
+export interface PostData {
+  content: string;
+  title: string;
+}

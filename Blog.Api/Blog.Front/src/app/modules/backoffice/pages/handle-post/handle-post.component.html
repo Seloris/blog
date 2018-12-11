@@ -1,6 +1,9 @@
 <div class="writer-container">
   <form [formGroup]="formGroup" (submit)="submitForm()">
     <h2>Formulaire</h2>
+    <mat-form-field>
+      <input placeholder="Titre" matInput formControlName="title"/>
+    </mat-form-field>
     <mat-form-field class="content-form-field">
       <textarea
         cdkTextareaAutosize

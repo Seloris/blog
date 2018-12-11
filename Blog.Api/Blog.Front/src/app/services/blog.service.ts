@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Post, PostResume } from '@ddj-models';
+import { Post, PostResume, PostData } from '@ddj-models';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
@@ -30,5 +30,9 @@ export class BlogService {
           .concat(res)
       )
     );
+  }
+
+  addPost(post: PostData) {
+    return this.http.post('', { post: post });
   }
 }
