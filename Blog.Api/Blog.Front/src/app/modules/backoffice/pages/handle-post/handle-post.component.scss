@@ -1,0 +1,19 @@
+:host {
+    display: block;
+    padding: 24px;
+    .writer-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        >* {
+            padding: 24px;
+        }
+        form {
+            .content-form-field {
+                width: 100%;
+            }
+            textarea {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { services } from './app.metas';
 import { appRouting } from './app.routing';
@@ -11,7 +12,13 @@ import { PagePostComponent } from './pages/page-post/page-post.component';
 
 @NgModule({
   declarations: [AppComponent, PageHomeComponent, PostCardComponent, PagePostComponent],
-  imports: [HttpClientModule, BrowserModule.withServerTransition({ appId: 'serverApp' }), appRouting, SharedModule],
+  imports: [
+    HttpClientModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    appRouting,
+    SharedModule,
+    BrowserAnimationsModule
+  ],
   providers: services,
   bootstrap: [AppComponent]
 })

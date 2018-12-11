@@ -1,7 +1,12 @@
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddPostComponent } from './components/add-post/add-post.component';
+import { HandlePostComponent } from './pages/handle-post/handle-post.component';
+import { PostListComponent } from './pages/post-list/post-list.component';
 
-const routes: Routes = [{ path: 'add-post', component: AddPostComponent }];
+const routes: Routes = [
+  { path: 'post', component: HandlePostComponent },
+  { path: 'post/:id', component: HandlePostComponent },
+  { path: 'posts', component: PostListComponent }
+];
 
 export const backOfficeRouting: ModuleWithProviders = RouterModule.forChild(routes);

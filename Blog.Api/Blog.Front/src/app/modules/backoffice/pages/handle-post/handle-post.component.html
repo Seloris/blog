@@ -1,0 +1,20 @@
+<div class="writer-container">
+  <form [formGroup]="formGroup" (submit)="submitForm()">
+    <h2>Formulaire</h2>
+    <mat-form-field class="content-form-field">
+      <textarea
+        cdkTextareaAutosize
+        placeholder="Contenu"
+        matInput
+        cols="50"
+        rows="50"
+        formControlName="content"
+      ></textarea
+    ></mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Confirm</button>
+  </form>
+  <div class="preview">
+    <h2>Preview</h2>
+    <markdown [data]="markdownContent"></markdown>
+  </div>
+</div>
