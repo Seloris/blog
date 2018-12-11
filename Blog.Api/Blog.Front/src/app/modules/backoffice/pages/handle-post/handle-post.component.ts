@@ -32,8 +32,6 @@ export class HandlePostComponent implements OnInit {
       return;
     }
 
-    this.blogService.addPost(this.formGroup.value).subscribe(res => {
-
-    });
+    this.blogService.addPost(this.formGroup.value).subscribe(res => {});
   }
 }
