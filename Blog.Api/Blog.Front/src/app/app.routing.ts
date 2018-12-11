@@ -5,7 +5,8 @@ import { PagePostComponent } from './pages/page-post/page-post.component';
 
 const routes: Routes = [
   { path: '', component: PageHomeComponent },
-  { path: 'posts/:postUrl', component: PagePostComponent }
+  { path: 'posts/:postUrl', component: PagePostComponent },
+  { path: 'backoffice', loadChildren: './modules/backoffice/backoffice.module#BackOfficeModule' }
 ];
 
 export const appRouting: ModuleWithProviders = RouterModule.forRoot(routes);

@@ -1,5 +1,5 @@
 <div class="img-container">
-  <a href="#">
+  <a [routerLink]="'posts/' + post.url">
     <div class="img-box"></div>
     <div class="overlay">
       <div class="backdrop"></div>
@@ -7,7 +7,7 @@
     </div>
   </a>
 </div>
-<h3 class="title">{{post.title}}</h3>
+<h3 class="title">{{ post.title }}</h3>
 <div class="details">
   <div class="category">Ajouté à <a class="link" href="#">Angular</a></div>
   <div class="date">18 octobre 2018</div>
