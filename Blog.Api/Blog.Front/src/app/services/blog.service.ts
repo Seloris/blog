@@ -16,23 +16,14 @@ export class BlogService {
   }
 
   getPosts(): Observable<PostResume[]> {
-    return this.http.get<PostResume[]>(`${environment.apiUrl}/posts`).pipe(
-      map(res =>
-        res
-          .concat(res)
-          .concat(res)
-          .concat(res)
-          .concat(res)
-          .concat(res)
-          .concat(res)
-          .concat(res)
-          .concat(res)
-          .concat(res)
-      )
-    );
+    return this.http.get<PostResume[]>(`${environment.apiUrl}/posts`);
   }
 
   addPost(post: PostData) {
-    return this.http.post('', { post: post });
+    return this.http.post(`${environment.apiUrl}/posts`, post);
+  }
+
+  updatePost(postId: number, post: PostData) {
+    return this.http.post(`${postId}`, post);
   }
 }

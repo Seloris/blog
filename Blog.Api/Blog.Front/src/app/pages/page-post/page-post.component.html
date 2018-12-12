@@ -1,7 +1,7 @@
 <ddj-async-content [isLoading]="isLoading" [error]="error">
   <div *ngIf="post">
-    <h1>{{post.title}}</h1>
+    <h1>{{ post.title }}</h1>
     <hr />
-    <div>{{post.content}}</div>
+    <div><markdown [data]="post.markdown"></markdown></div>
   </div>
 </ddj-async-content>

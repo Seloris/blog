@@ -9,6 +9,7 @@ import { PostCardComponent } from './components/post-card/post-card.component';
 import { SharedModule } from './modules/shared/shared.module';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { PagePostComponent } from './pages/page-post/page-post.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [AppComponent, PageHomeComponent, PostCardComponent, PagePostComponent],
@@ -17,7 +18,8 @@ import { PagePostComponent } from './pages/page-post/page-post.component';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     appRouting,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MarkdownModule.forRoot()
   ],
   providers: services,
   bootstrap: [AppComponent]

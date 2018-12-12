@@ -1,6 +1,6 @@
 export interface Post {
   title: string;
-  content: string;
+  markdown: string;
 }
 
 export interface PostResume {
@@ -10,6 +10,9 @@ export interface PostResume {
 }
 
 export interface PostData {
-  content: string;
   title: string;
+  description: string;
+  url: string;
+  markdown: string;
+  publicationDate: string;
 }

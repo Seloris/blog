@@ -8,7 +8,7 @@ import { HandlePostComponent } from './pages/handle-post/handle-post.component';
 import { PostListComponent } from './pages/post-list/post-list.component';
 
 @NgModule({
-  imports: [CommonModule, backOfficeRouting, MarkdownModule.forRoot(), ReactiveFormsModule, SharedModule],
+  imports: [CommonModule, backOfficeRouting, MarkdownModule.forChild(), ReactiveFormsModule, SharedModule],
   declarations: [PostListComponent, HandlePostComponent]
 })
 export class BackOfficeModule {}

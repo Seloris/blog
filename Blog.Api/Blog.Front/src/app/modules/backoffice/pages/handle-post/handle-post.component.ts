@@ -13,13 +13,16 @@ export class HandlePostComponent implements OnInit {
   markdownContent: string;
 
   constructor(private fb: FormBuilder, private blogService: BlogService) {
-    const contentCtrl = this.fb.control(null, Validators.required);
+    const markdownCtrl = this.fb.control(null, Validators.required);
     this.formGroup = this.fb.group({
-      content: contentCtrl,
-      title: this.fb.control('', Validators.required)
+      markdown: markdownCtrl,
+      title: this.fb.control('', Validators.required),
+      url: this.fb.control('', Validators.required),
+      description: this.fb.control('', Validators.required),
+      publicationDate: this.fb.control(new Date().toISOString(), Validators.required)
     });
 
-    contentCtrl.valueChanges.pipe(debounceTime(100)).subscribe(val => {
+    markdownCtrl.valueChanges.pipe(debounceTime(100)).subscribe(val => {
       this.markdownContent = val;
     });
   }
@@ -32,6 +35,8 @@ export class HandlePostComponent implements OnInit {
       return;
     }
 
-    this.blogService.addPost(this.formGroup.value).subscribe(res => {});
+    this.blogService.addPost(this.formGroup.value).subscribe(res => {
+      alert('created');
+    });
   }
 }

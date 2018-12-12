@@ -39,7 +39,7 @@ namespace Blog.Domain.Queries
 
             return new PostModel
             {
-                Content = post.Content,
+                Markdown = post.MarkdownContent,
                 PublicationDate = post.PublicationDate,
                 Title = post.Title,
             };

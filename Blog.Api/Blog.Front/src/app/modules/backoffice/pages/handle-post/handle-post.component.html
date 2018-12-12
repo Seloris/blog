@@ -1,9 +1,10 @@
 <div class="writer-container">
   <form [formGroup]="formGroup" (submit)="submitForm()">
     <h2>Formulaire</h2>
-    <mat-form-field>
-      <input placeholder="Titre" matInput formControlName="title"/>
-    </mat-form-field>
+    <mat-form-field> <input placeholder="Titre" matInput formControlName="title" /> </mat-form-field>
+    <mat-form-field> <input placeholder="Url" matInput formControlName="url" /> </mat-form-field>
+    <mat-form-field> <input placeholder="Description" matInput formControlName="description" /> </mat-form-field>
+
     <mat-form-field class="content-form-field">
       <textarea
         cdkTextareaAutosize
@@ -11,7 +12,7 @@
         matInput
         cols="50"
         rows="50"
-        formControlName="content"
+        formControlName="markdown"
       ></textarea
     ></mat-form-field>
     <button mat-raised-button color="primary" type="submit">Confirm</button>
