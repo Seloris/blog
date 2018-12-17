@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Post } from '@ddj-models';
-import { BlogService } from 'src/app/services/blog.service';
+import { PostData } from '@ddj-models';
 import { finalize } from 'rxjs/operators';
+import { BlogService } from 'src/app/services/blog.service';
 
 @Component({
   selector: 'ddj-page-post',
@@ -12,7 +12,7 @@ import { finalize } from 'rxjs/operators';
 export class PagePostComponent implements OnInit {
   isLoading = true;
   error = '';
-  post: Post;
+  post: PostData;
 
   constructor(route: ActivatedRoute, private blogService: BlogService) {
     route.params.subscribe(p => {

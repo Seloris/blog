@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { BlogService } from '@ddj-services';
+import { MarkdownComponent } from 'ngx-markdown';
 import { debounceTime } from 'rxjs/operators';
+import { extractNumberParam } from 'src/utilities/router.utilities';
 
 @Component({
   selector: 'ddj-handle-post',
@@ -11,8 +14,10 @@ import { debounceTime } from 'rxjs/operators';
 export class HandlePostComponent implements OnInit {
   formGroup: FormGroup;
   markdownContent: string;
+  currentPostId: number;
+  @ViewChild(MarkdownComponent) markdownComp: MarkdownComponent;
 
-  constructor(private fb: FormBuilder, private blogService: BlogService) {
+  constructor(private fb: FormBuilder, private blogService: BlogService, private route: ActivatedRoute) {
     const markdownCtrl = this.fb.control(null, Validators.required);
     this.formGroup = this.fb.group({
       markdown: markdownCtrl,
@@ -25,9 +30,26 @@ export class HandlePostComponent implements OnInit {
     markdownCtrl.valueChanges.pipe(debounceTime(100)).subscribe(val => {
       this.markdownContent = val;
     });
+
+    this.route.params.subscribe(params => {
+      const id = extractNumberParam(params, 'id');
+      if (id !== null) {
+        this.currentPostId = id;
+        this.patchFromId(id);
+      } else {
+        this.currentPostId = null;
+        this.formGroup.reset({});
+      }
+    });
   }
 
   ngOnInit() {}
+
+  patchFromId(id: number) {
+    this.blogService.getEditPost(id).subscribe(upsertPost => {
+      this.formGroup.patchValue(upsertPost);
+    });
+  }
 
   submitForm() {
     if (this.formGroup.invalid) {
@@ -35,8 +57,21 @@ export class HandlePostComponent implements OnInit {
       return;
     }
 
-    this.blogService.addPost(this.formGroup.value).subscribe(res => {
-      alert('created');
-    });
+    if (this.currentPostId == null) {
+      this.blogService
+        .addPost({ ...this.formGroup.value, html: this.markdownComp.element.nativeElement.innerHTML })
+        .subscribe(res => {
+          alert('created');
+        });
+    } else {
+      this.blogService
+        .updatePost(this.currentPostId, {
+          ...this.formGroup.value,
+          html: this.markdownComp.element.nativeElement.innerHTML
+        })
+        .subscribe(res => {
+          alert('updated');
+        });
+    }
   }
 }

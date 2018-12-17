@@ -4,8 +4,8 @@ import { HandlePostComponent } from './pages/handle-post/handle-post.component';
 import { PostListComponent } from './pages/post-list/post-list.component';
 
 const routes: Routes = [
-  { path: 'post', component: HandlePostComponent },
-  { path: 'post/:id', component: HandlePostComponent },
+  { path: 'new-post', component: HandlePostComponent },
+  { path: 'posts/:id', component: HandlePostComponent },
   { path: 'posts', component: PostListComponent }
 ];
 

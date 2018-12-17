@@ -13,3 +13,11 @@ h5,
 h6 {
     font-family: $headerFont;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1024px;
+    margin: auto;
+    padding: 24px;
+}

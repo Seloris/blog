@@ -8,7 +8,7 @@ namespace Blog.Domain.Commands
 {
     public class UpsertPostCommand : ICommand
     {
-        private PostModel _post;
+        private UpsertPostModel _post;
         private BlogContext _context;
         private int? Id;
 
@@ -17,7 +17,7 @@ namespace Blog.Domain.Commands
             _context = context;
         }
 
-        public UpsertPostCommand WithPost(PostModel postModel)
+        public UpsertPostCommand WithPost(UpsertPostModel postModel)
         {
             _post = postModel;
             return this;
@@ -50,6 +50,7 @@ namespace Blog.Domain.Commands
             post.Title = _post.Title;
             post.Url = _post.Url;
             post.Description = _post.Description;
+            post.HtmlContent = _post.Html;
 
             await _context.SaveChangesAsync();
         }

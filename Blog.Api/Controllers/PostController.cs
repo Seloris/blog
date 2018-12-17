@@ -16,6 +16,13 @@ namespace Blog.Api.Controllers
             return Ok(result);
         }
 
+        [HttpGet("bo/{postId}")]
+        public async Task<IActionResult> Index([FromServices] GetUpsertPostQuery query, int postId)
+        {
+            PostModel post = await query.ByPostId(postId).GetAsync();
+            return Ok(post);
+        }
+
         [HttpGet("{postUrl}")]
         public async Task<IActionResult> Index([FromServices] GetPostQuery query, string postUrl)
         {
@@ -24,16 +31,16 @@ namespace Blog.Api.Controllers
         }
 
         [HttpPost("")]
-        public async Task<IActionResult> AddPostAsync([FromServices] UpsertPostCommand command, [FromBody] PostModel request)
+        public async Task<IActionResult> AddPostAsync([FromServices] UpsertPostCommand command, [FromBody] UpsertPostModel request)
         {
             await command.WithPost(request).SendAsync();
             return NoContent();
         }
 
         [HttpPut("{postId}")]
-        public async Task<IActionResult> UpdatePostAsync([FromServices] UpsertPostCommand command, [FromBody] PostModel request, int postId)
+        public async Task<IActionResult> UpdatePostAsync([FromServices] UpsertPostCommand command, [FromBody] UpsertPostModel request, int postId)
         {
-            await command.WithPost(request).SendAsync();
+            await command.WithPost(request).WithPostId(postId).SendAsync();
             return NoContent();
         }
     }

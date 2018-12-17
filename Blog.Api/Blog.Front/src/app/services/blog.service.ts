@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Post, PostResume, PostData } from '@ddj-models';
+import { PostData, PostResume, UpsertPostData } from '@ddj-models';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +10,12 @@ import { map } from 'rxjs/operators';
 export class BlogService {
   constructor(private http: HttpClient) {}
 
-  getPost(postUrl: string): Observable<Post> {
-    return this.http.get<Post>(`${environment.apiUrl}/posts/${postUrl}`);
+  getPost(postUrl: string): Observable<PostData> {
+    return this.http.get<PostData>(`${environment.apiUrl}/posts/${postUrl}`);
+  }
+
+  getEditPost(id: number): Observable<UpsertPostData> {
+    return this.http.get<UpsertPostData>(`${environment.apiUrl}/posts/bo/${id}`);
   }
 
   getPosts(): Observable<PostResume[]> {
@@ -24,6 +27,6 @@ export class BlogService {
   }
 
   updatePost(postId: number, post: PostData) {
-    return this.http.post(`${postId}`, post);
+    return this.http.put(`${environment.apiUrl}/posts/${postId}`, post);
   }
 }

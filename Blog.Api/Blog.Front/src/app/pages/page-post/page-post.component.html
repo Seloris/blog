@@ -2,6 +2,6 @@
   <div *ngIf="post">
     <h1>{{ post.title }}</h1>
     <hr />
-    <div><markdown [data]="post.markdown"></markdown></div>
+    <div [innerHTML]="post.html"></div>
   </div>
 </ddj-async-content>

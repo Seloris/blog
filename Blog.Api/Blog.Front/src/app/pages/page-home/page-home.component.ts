@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Post, PostResume } from '@ddj-models';
-import { BlogService } from '../../services/blog.service';
+import { PostResume } from '@ddj-models';
 import { finalize } from 'rxjs/operators';
-import { NavService } from 'src/app/services/nav.service';
+import { BlogService } from '../../services/blog.service';
 
 @Component({
   selector: 'ddj-page-home',

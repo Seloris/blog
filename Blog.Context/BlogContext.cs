@@ -23,6 +23,7 @@ namespace Blog.Context
                 post.Property(p => p.Description).IsRequired();
                 post.Property(p => p.Url).IsRequired();
                 post.Property(p => p.MarkdownContent).IsRequired();
+                post.Property(p => p.HtmlContent).IsRequired();
             });
 
             base.OnModelCreating(modelBuilder);

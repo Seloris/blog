@@ -18,8 +18,7 @@ import { MarkdownModule } from 'ngx-markdown';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     appRouting,
     SharedModule,
-    BrowserAnimationsModule,
-    MarkdownModule.forRoot()
+    BrowserAnimationsModule
   ],
   providers: services,
   bootstrap: [AppComponent]

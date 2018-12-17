@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AsyncContentComponent } from './components/async-content/async-content.component';
-import { materialModules } from './material-imports';
+import { sharedMaterialModules } from './material-imports';
 
 const exportedComponents = [AsyncContentComponent];
 
 @NgModule({
-  imports: [CommonModule, ...materialModules],
+  imports: [CommonModule, ...sharedMaterialModules],
   declarations: [...exportedComponents],
-  exports: [...exportedComponents, ...materialModules]
+  exports: [...exportedComponents, ...sharedMaterialModules]
 })
 export class SharedModule {}

@@ -10,6 +10,7 @@ namespace Blog.Context.Entities
         public string Url { get; set; }
 
         public string MarkdownContent { get; set; }
+        public string HtmlContent { get; set; }
 
         public DateTime CreationDate { get; set; }
         public DateTime PublicationDate { get; set; }

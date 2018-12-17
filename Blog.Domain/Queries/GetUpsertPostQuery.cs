@@ -8,36 +8,36 @@ using System.Threading.Tasks;
 
 namespace Blog.Domain.Queries
 {
-    public class GetPostQuery : IQuery<PostModel>
+    public class GetUpsertPostQuery : IQuery<UpsertPostModel>
     {
         private readonly BlogContext _context;
-        private string _postUrl;
-        public GetPostQuery(BlogContext context)
+        private int? _postId;
+        public GetUpsertPostQuery(BlogContext context)
         {
             _context = context;
         }
 
-        public GetPostQuery ByPostUrl(string postUrl)
+        public GetUpsertPostQuery ByPostId(int postId)
         {
-            _postUrl = postUrl;
+            _postId = postId;
             return this;
         }
 
-        public async Task<PostModel> GetAsync()
+        public async Task<UpsertPostModel> GetAsync()
         {
-            if (string.IsNullOrWhiteSpace(_postUrl))
+            if (_postId == null)
             {
-                throw new Exception("Tu comptes aller où avec un null or whitespace ??");
+                throw new Exception("Post id null");
             }
 
-            Post post = await _context.Posts.FirstOrDefaultAsync(p => p.Url == _postUrl);
+            Post post = await _context.Posts.FirstOrDefaultAsync(p => p.Id == _postId);
 
             if (post == null)
             {
                 throw new Exception("Dsl ce post n'existe pas");
             }
 
-            return PostModel.From(post);
+            return UpsertPostModel.From(post);
         }
     }
 }

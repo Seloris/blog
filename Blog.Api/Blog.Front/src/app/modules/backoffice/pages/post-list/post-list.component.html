@@ -1,2 +1,45 @@
-<div>liste ici</div>
-<a routerLink="../post">New post</a>
+<div class="container">
+  <div class="actions">
+    <a mat-button routerLink="../new-post">
+      <mat-icon>add</mat-icon>New post
+    </a></div>
+  <table mat-table [dataSource]="posts" class="mat-elevation-z8">
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Titre </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="url">
+      <th mat-header-cell *matHeaderCellDef> Url </th>
+      <td mat-cell *matCellDef="let element"> {{element.url}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="creationDate">
+      <th mat-header-cell *matHeaderCellDef> Date de création </th>
+      <td mat-cell *matCellDef="let element"> {{element.creationDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="publicationDate">
+      <th mat-header-cell *matHeaderCellDef> Date de pub. </th>
+      <td mat-cell *matCellDef="let element"> {{element.publicationDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <a mat-icon-button [routerLink]="'/posts/' + element.url">
+          <mat-icon>remove_red_eye</mat-icon>
+        </a>
+        <a mat-icon-button [routerLink]="element.id">
+          <mat-icon>edit</mat-icon>
+        </a> </td>
+    </ng-container>
+
+
+    <!-- [routerLink]="'/posts/' + element.url" -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

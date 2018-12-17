@@ -16,12 +16,7 @@ namespace Blog.Domain.Queries
 
         public Task<PostResumeModel[]> GetAsync()
         {
-            return _context.Posts.Select(p => new PostResumeModel
-            {
-                Title = p.Title,
-                Url = p.Url,
-                Description = p.Description
-            }).ToArrayAsync();
+            return _context.Posts.Select(p => PostResumeModel.From(p)).ToArrayAsync();
         }
     }
 }

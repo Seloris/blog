@@ -10,6 +10,7 @@ namespace Blog.Api.DI
         {
             services.AddScoped<GetPostsQuery>();
             services.AddScoped<GetPostQuery>();
+            services.AddScoped<GetUpsertPostQuery>();
             services.AddScoped<UpsertPostCommand>();
         }
 

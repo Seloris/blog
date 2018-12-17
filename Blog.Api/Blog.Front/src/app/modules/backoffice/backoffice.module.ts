@@ -6,9 +6,17 @@ import { SharedModule } from '../shared/shared.module';
 import { backOfficeRouting } from './backoffice.routing';
 import { HandlePostComponent } from './pages/handle-post/handle-post.component';
 import { PostListComponent } from './pages/post-list/post-list.component';
+import { backOfficeMaterialModules } from './backoffice-material-modules';
 
 @NgModule({
-  imports: [CommonModule, backOfficeRouting, MarkdownModule.forChild(), ReactiveFormsModule, SharedModule],
+  imports: [
+    CommonModule,
+    backOfficeRouting,
+    MarkdownModule.forRoot(),
+    ReactiveFormsModule,
+    SharedModule,
+    ...backOfficeMaterialModules
+  ],
   declarations: [PostListComponent, HandlePostComponent]
 })
 export class BackOfficeModule {}

@@ -6,6 +6,7 @@
     [CreationDate] DATETIME NOT NULL, 
     [PublicationDate] DATETIME NULL, 
 	[MarkdownContent] NVARCHAR (MAX) NOT NULL,
+	[HtmlContent] NVARCHAR (MAX) NOT NULL,
     CONSTRAINT [PK_Posts] PRIMARY KEY CLUSTERED ([Id] ASC), 
     CONSTRAINT [FK_Posts_Url] UNIQUE ([Url])
 );
