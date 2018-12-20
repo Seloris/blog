@@ -1,1 +1,11 @@
 ﻿@Html.Raw(ViewData["SPA"])
+
+<link href="~/styles.css" asp-append-version="true" rel="stylesheet">
+
+@section scripts {
+    <!-- Our webpack bundle -->
+    <script type="text/javascript" asp-append-version="true" src="~/runtime.js"></script>
+    <script type="text/javascript" asp-append-version="true" src="~/polyfills.js"></script>
+    <script type="text/javascript" asp-append-version="true" src="~/main.js"></script>
+    <script type="text/javascript" asp-append-version="true" src="~/scripts.js"></script>
+}

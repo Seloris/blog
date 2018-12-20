@@ -16,6 +16,7 @@
 <body>
     @RenderBody()
     @Html.Raw(ViewData["Scripts"])
+    @RenderSection("scripts", required: false)
 
 </body>
 </html>
