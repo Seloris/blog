@@ -36,6 +36,9 @@ namespace Blog.Api.Controllers
             RenderToStringResult result = await prerenderer.RenderToString("./Blog.Front/dist/server/server.js", customDataParameter: parameters);
 
             ViewData["SPA"] = result.Html;
+            ViewData["Scripts"] = result.Globals["scripts"];
+            ViewData["Styles"] = result.Globals["styles"];
+
 
             return View();
         }

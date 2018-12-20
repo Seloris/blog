@@ -1,1 +1,21 @@
-﻿@RenderBody()
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <base href="@(Url.Content("~/"))" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Blog</title>
+    <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @Html.Raw(ViewData["Styles"])
+</head>
+<body>
+    @RenderBody()
+    @Html.Raw(ViewData["Scripts"])
+
+</body>
+</html>

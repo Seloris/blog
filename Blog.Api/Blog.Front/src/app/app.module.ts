@@ -19,7 +19,7 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     appRouting,
     SharedModule,
-    BrowserAnimationsModule
+    // BrowserAnimationsModule
   ],
   providers: services,
   bootstrap: [AppComponent]
