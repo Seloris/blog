@@ -1,8 +1,14 @@
-$headerFont: 'Work Sans',
+@import '~@angular/material/theming';
+$mainFont: 'Work Sans',
 serif;
-$bodyFont: 'Quattrocento Sans',
+$secondaryFont: 'Quattrocento Sans',
 serif;
 $color-link: #49c5b6;
 $color-link-hover: #202121;
 $transition-quick: 0.175s;
 $transition-normal: 0.3s;
+// colors
+$palette: ( 50: #e4e3f1, 100: #bcb9dc, 200: #8f8ac4, 300: #625bac, 400: #40389b, 500: #1e1589, 600: #1a1281, 700: #160f76, 800: #120c6c, 900: #0a0659, A100: #8e8cff, A200: #5d59ff, A400: #2b26ff, A700: #120cff, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #ffffff, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #ffffff, A400: #ffffff, A700: #ffffff, ));
+$primary: mat-palette($palette);
+$accent: mat-palette($mat-blue-grey, 700);
+$warn: mat-palette($mat-deep-orange, 800);

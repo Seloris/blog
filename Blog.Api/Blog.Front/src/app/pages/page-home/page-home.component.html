@@ -1,4 +1,3 @@
-<h1>- Daniel Djordjevic - <a routerLink="/backoffice/posts">go BO</a></h1>
 <ddj-async-content [isLoading]="isLoadingPosts" [error]="error">
   <div class="post-container"><ddj-post-card *ngFor="let post of posts" [post]="post"></ddj-post-card></div>
 </ddj-async-content>

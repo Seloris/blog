@@ -1,0 +1,7 @@
+@import '~@angular/material/theming';
+@import 'variables';
+// include once
+@include mat-core();
+// Primary light
+$app-theme: mat-light-theme($primary, $accent, $warn);
+@include angular-material-theme($app-theme);

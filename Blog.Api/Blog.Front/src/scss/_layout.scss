@@ -2,7 +2,13 @@
 body {
     color: #202121;
     background: #f4f7f6;
-    font-family: $bodyFont;
+    font-family: $mainFont;
+}
+
+ddj-root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 h1,
@@ -11,7 +17,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $headerFont;
+    font-family: $secondaryFont !important;
 }
 
 .container {

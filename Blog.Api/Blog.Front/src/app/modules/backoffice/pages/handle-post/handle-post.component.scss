@@ -1,6 +1,8 @@
 :host {
     display: block;
     padding: 24px;
+    flex: 1;
+    position: relative;
     .writer-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -8,6 +10,7 @@
             padding: 24px;
         }
         form {
+            min-width: 600px;
             mat-form-field {
                 width: 100%;
                 textarea {

@@ -10,9 +10,10 @@ import { SharedModule } from './modules/shared/shared.module';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { PagePostComponent } from './pages/page-post/page-post.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, PageHomeComponent, PostCardComponent, PagePostComponent],
+  declarations: [AppComponent, PageHomeComponent, PostCardComponent, PagePostComponent, HeaderComponent],
   imports: [
     HttpClientModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

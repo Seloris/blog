@@ -7,6 +7,10 @@ import { Router } from '@angular/router';
 export class NavService {
   constructor(private router: Router) {}
 
+  goHome() {
+    return this.router.navigate(['/']);
+  }
+
   goToPost(postUrl: string) {
     return this.router.navigate(['post', postUrl]);
   }

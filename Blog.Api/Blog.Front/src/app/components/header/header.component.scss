@@ -1,0 +1,19 @@
+@import 'variables';
+:host {
+    display: flex;
+    padding: 12px;
+    .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: mat-color($primary);
+        text-decoration: none;
+        .firstname {
+            font-size: 2em;
+        }
+        .lastname {
+            font-size: 2em;
+            margin-top: -8px;
+        }
+    }
+}

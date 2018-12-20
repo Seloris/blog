@@ -1,7 +1,9 @@
-<ddj-async-content [isLoading]="isLoading" [error]="error">
-  <div *ngIf="post">
-    <h1>{{ post.title }}</h1>
-    <hr />
-    <div [innerHTML]="post.html"></div>
-  </div>
-</ddj-async-content>
+<div class="scroll-container-y">
+  <ddj-async-content [isLoading]="isLoading" [error]="error">
+    <div class="container" *ngIf="post">
+      <h1>{{ post.title }}</h1>
+      <hr />
+      <div [innerHTML]="post.html"></div>
+    </div>
+  </ddj-async-content>
+</div>
