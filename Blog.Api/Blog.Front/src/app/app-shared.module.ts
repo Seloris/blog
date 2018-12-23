@@ -24,4 +24,4 @@ import { HeaderComponent } from './components/header/header.component';
   providers: services,
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppSharedModule {}
