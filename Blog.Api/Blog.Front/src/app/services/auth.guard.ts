@@ -2,25 +2,52 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 import { Observable, Observer } from 'rxjs';
 import { AuthService } from './auth.service';
+import { finalize } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot, auth: AuthService): Observable<boolean> {
-    Observable.create((observer: Observer<boolean>) => {
+  constructor(private auth: AuthService) {}
 
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    // TODO : improve observable workflow
+    return Observable.create((observer: Observer<boolean>) => {
+      debugger;
+      this.auth
+        .handleAuthentication()
+        .pipe(
+          finalize(() => {
+            this.checkAuth(observer);
+          })
+        )
+        .subscribe(() => {});
     });
-    const token = auth.getToken();
-    if (token) {
-      aut;
+  }
+
+  private checkAuth(observer: Observer<boolean>) {
+    if (!this.auth.isAuthenticated) {
+      const token = this.auth.getToken();
+      if (!!token) {
+        this.auth.renewToken().subscribe(
+          () => {
+            this.auth.login();
+            observer.next(false);
+            observer.complete();
+          },
+          _err => {
+            observer.next(false);
+            observer.complete();
+          }
+        );
+      } else {
+        this.auth.login();
+        observer.next(false);
+        observer.complete();
+      }
+    } else {
+      observer.next(true);
+      observer.complete();
     }
-    // if (!this.auth.isAuthenticated) {
-    //   if (this.autService.hasToken) {
-    //     this.autService.renewToken().subscribe(() => {}, () => this.autService.login());
-    //   } else {
-    //     this.autService.login();
-    //   }
-    // }
   }
 }

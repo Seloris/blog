@@ -11,11 +11,11 @@ export class AuthService {
 
   constructor(private storage: LocalStorageService) {
     this.webAuth = new WebAuth({
-      domain: 'YOUR_AUTH0_DOMAIN',
-      clientID: 'YOUR_CLIENT_ID',
+      domain: 'seloris.eu.auth0.com',
+      clientID: 'BqeaWucC7nWGw3wWJ6RyEYrXQ3zAySP9',
       responseType: 'token id_token',
       scope: 'openid',
-      redirectUri: window.location.href
+      redirectUri: 'http://localhost:4200/backoffice/posts'
     });
   }
 
@@ -23,13 +23,14 @@ export class AuthService {
     this.webAuth.authorize();
   }
 
-  handleAuthentication(): Observable<void> {
-    return Observable.create((observer: Observer<void>) => {
+  handleAuthentication(): Observable<any> {
+    return Observable.create((observer: Observer<any>) => {
       this.webAuth.parseHash((err, res) => {
         if (res && res.accessToken && res.idToken) {
           // Set session
           this.setSession(res);
-          observer.next();
+          observer.next(true);
+          observer.complete();
         } else {
           observer.error(err);
         }
@@ -37,7 +38,7 @@ export class AuthService {
     });
   }
 
-  isAuthenticated() {
+  get isAuthenticated() {
     const expiresAt = JSON.parse(this.storage.get(STORAGE_KEYS.ExpiresAt));
     return new Date().getTime() < expiresAt;
   }
