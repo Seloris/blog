@@ -5,6 +5,7 @@ import { BlogService } from '@ddj-services';
 import { MarkdownComponent } from 'ngx-markdown';
 import { debounceTime } from 'rxjs/operators';
 import { extractNumberParam } from 'src/utilities/router.utilities';
+import { UiService } from 'src/app/services/ui.service';
 
 // tslint:disable:max-line-length
 @Component({
@@ -18,7 +19,12 @@ export class HandlePostComponent implements OnInit {
   currentPostId: number;
   @ViewChild(MarkdownComponent) markdownComp: MarkdownComponent;
 
-  constructor(private fb: FormBuilder, private blogService: BlogService, private route: ActivatedRoute) {
+  constructor(
+    private fb: FormBuilder,
+    private blogService: BlogService,
+    private route: ActivatedRoute,
+    private ui: UiService
+  ) {
     const markdownCtrl = this.fb.control(null, Validators.required);
     this.formGroup = this.fb.group({
       markdown: markdownCtrl,
@@ -62,7 +68,7 @@ export class HandlePostComponent implements OnInit {
       this.blogService
         .addPost({ ...this.formGroup.value, html: this.markdownComp.element.nativeElement.innerHTML })
         .subscribe(res => {
-          alert('created');
+          this.ui.showInfo('Nouveau post ajouté !');
         });
     } else {
       this.blogService
@@ -71,7 +77,7 @@ export class HandlePostComponent implements OnInit {
           html: this.markdownComp.element.nativeElement.innerHTML
         })
         .subscribe(res => {
-          alert('updated');
+          this.ui.showInfo('Post mis à jour !');
         });
     }
   }

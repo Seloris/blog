@@ -1,13 +1,20 @@
 <div class="writer-container scroll-container-y">
   <form [formGroup]="formGroup" (submit)="submitForm()">
     <h2>Formulaire</h2>
-    <mat-form-field> <input placeholder="Titre" matInput formControlName="title" /> </mat-form-field>
-    <mat-form-field> <input placeholder="Url" matInput formControlName="url" /> </mat-form-field>
-    <mat-form-field> <input placeholder="Description" matInput formControlName="description" /> </mat-form-field>
-    <mat-form-field> <input placeholder="Date" matInput formControlName="publicationDate" /> </mat-form-field>
-
+    <mat-form-field>
+      <input placeholder="Titre" matInput formControlName="title" />
+    </mat-form-field>
+    <mat-form-field>
+      <input placeholder="Url" matInput formControlName="url" /> </mat-form-field>
+    <mat-form-field>
+      <input placeholder="Description" matInput formControlName="description" /> </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="publicationDate" [matDatepicker]="picker" placeholder="Choisir une date de publication">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
     <mat-form-field class="content-form-field">
-      <textarea cdkTextareaAutosize placeholder="Contenu" matInput cols="50" rows="50" formControlName="markdown"></textarea></mat-form-field>
+      <textarea cdkTextareaAutosize placeholder="Contenu" matInput cdkAutosizeMinRows="10" cols="50" rows="50" formControlName="markdown"></textarea></mat-form-field>
     <button mat-raised-button color="primary" type="submit">Confirm</button>
     <button mat-raised-button (click)="test()" color="accent" type="button">Prefill</button>
   </form>

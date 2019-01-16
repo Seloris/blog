@@ -1,6 +1,6 @@
 <div class="container">
   <div class="actions">
-    <a mat-button routerLink="../new-post">
+    <a mat-button routerLink="new-post">
       <mat-icon>add</mat-icon>New post
     </a></div>
   <table mat-table [dataSource]="posts" class="mat-elevation-z8">
@@ -32,13 +32,12 @@
         <a mat-icon-button [routerLink]="'/posts/' + element.url">
           <mat-icon>remove_red_eye</mat-icon>
         </a>
-        <a mat-icon-button [routerLink]="element.id">
+        <a mat-icon-button [routerLink]="'posts/' + element.id">
           <mat-icon>edit</mat-icon>
         </a> </td>
     </ng-container>
 
 
-    <!-- [routerLink]="'/posts/' + element.url" -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>

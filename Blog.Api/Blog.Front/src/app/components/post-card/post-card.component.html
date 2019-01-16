@@ -10,5 +10,5 @@
 <h3 class="title">{{ post.title }}</h3>
 <div class="details">
   <div class="category">Ajouté à <a class="link" href="#">Angular</a></div>
-  <div class="date">18 octobre 2018</div>
+  <div class="date">{{ post.publicationDate | date: 'dd/MM/yyyy'}}</div>
 </div>

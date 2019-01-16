@@ -15,7 +15,7 @@ export class AuthService {
       clientID: 'BqeaWucC7nWGw3wWJ6RyEYrXQ3zAySP9',
       responseType: 'token id_token',
       scope: 'openid',
-      redirectUri: 'http://localhost:4200/backoffice/posts'
+      redirectUri: 'http://localhost:4200/backoffice'
     });
   }
 
@@ -23,7 +23,7 @@ export class AuthService {
     this.webAuth.authorize();
   }
 
-  handleAuthentication(): Observable<any> {
+  parseHash(): Observable<any> {
     return Observable.create((observer: Observer<any>) => {
       this.webAuth.parseHash((err, res) => {
         if (res && res.accessToken && res.idToken) {
@@ -31,8 +31,12 @@ export class AuthService {
           this.setSession(res);
           observer.next(true);
           observer.complete();
-        } else {
+        } else if (err) {
           observer.error(err);
+        } else {
+          // err is null when no hash to parse
+          observer.next(true);
+          observer.complete();
         }
       });
     });
