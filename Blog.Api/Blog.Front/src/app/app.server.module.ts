@@ -10,6 +10,6 @@ import { AuthInterceptor } from './services/auth-interceptor';
 @NgModule({
   imports: [NoopAnimationsModule, AppSharedModule, ServerModule, ServerTransferStateModule, ModuleMapLoaderModule],
   bootstrap: [AppComponent],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }]
+  providers: []
 })
 export class AppServerModule {}
