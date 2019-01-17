@@ -1,8 +1,8 @@
 @import '~@angular/material/theming';
-$bodyFont: 'Aleo',
+$headerFont: 'Aleo',
 serif;
-$headerFont: 'Helvetica',
-serif;
+$bodyFont: 'Open Sans',
+sans-serif;
 $color-link: #49c5b6;
 $color-link-hover: #202121;
 $transition-quick: 0.175s;

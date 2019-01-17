@@ -17,18 +17,18 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $bodyFont !important;
+    font-family: $headerFont !important;
 }
 
 h1 {
-    color: mat-color($primary, 500);
+    color: mat-color($primary, 900);
     margin-top: 24px;
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom: 12px;
 }
 
 h2 {
-    color: mat-color($accent, 600);
+    color: mat-color($accent, 800);
 }
 
 .container {
@@ -42,6 +42,7 @@ h2 {
 p {
     margin: 12px 0;
     line-height: 1.5em;
+    font-weight: 400;
 }
 
 strong {
