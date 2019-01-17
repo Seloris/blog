@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Auth0DecodedHash, WebAuth } from 'auth0-js';
 import { Observable, Observer } from 'rxjs';
 import { LocalStorageService, STORAGE_KEYS } from './local-storage.service';
+import { ORIGIN_URL } from '@nguniversal/aspnetcore-engine/tokens';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +10,13 @@ import { LocalStorageService, STORAGE_KEYS } from './local-storage.service';
 export class AuthService {
   private webAuth: WebAuth;
 
-  constructor(private storage: LocalStorageService) {
+  constructor(private storage: LocalStorageService, @Inject(ORIGIN_URL) origin: string) {
     this.webAuth = new WebAuth({
       domain: 'seloris.eu.auth0.com',
       clientID: 'BqeaWucC7nWGw3wWJ6RyEYrXQ3zAySP9',
       responseType: 'token id_token',
       scope: 'openid',
-      redirectUri: 'http://localhost:4200/backoffice'
+      redirectUri: `${origin}/backoffice`
     });
   }
 
