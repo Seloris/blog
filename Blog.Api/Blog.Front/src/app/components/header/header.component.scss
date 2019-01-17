@@ -2,6 +2,7 @@
 :host {
     display: flex;
     padding: 12px;
+    @include mat-elevation(2);
     .logo {
         display: flex;
         flex-direction: column;
