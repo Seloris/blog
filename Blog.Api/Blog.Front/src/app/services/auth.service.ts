@@ -28,10 +28,15 @@ export class AuthService {
     return Observable.create((observer: Observer<any>) => {
       this.webAuth.parseHash((err, res) => {
         if (res && res.accessToken && res.idToken) {
-          // Set session
-          this.setSession(res);
-          observer.next(true);
-          observer.complete();
+          const appMetaData = res.idTokenPayload['http://blog.daniel.djordjevic.fr'];
+          if (appMetaData && appMetaData.roles && appMetaData.roles.indexOf('writer') !== -1) {
+            // Set session
+            this.setSession(res);
+            observer.next(true);
+            observer.complete();
+          } else {
+            observer.error('You are not a writer !!');
+          }
         } else if (err) {
           observer.error(err);
         } else {
